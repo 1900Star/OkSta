@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="80dp"
+              android:orientation="vertical">
+
+    <RelativeLayout android:id="@+id/left_view"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="#FFE1843E"
+
+    >
+        <waimai.yunlian.com.okstar.view.CircleImageView
+            android:id="@+id/iv_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+
+            android:src="@drawable/ff"/>
+        <TextView
+            android:id="@+id/left_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_left"
+            android:text="Holler Smartisan"
+            android:textColor="#0f0"/>
+
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/right_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FF2857EF"
+    >
+        <waimai.yunlian.com.okstar.view.CircleImageView
+            android:id="@+id/iv_right"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jj"/>
+
+        <TextView
+            android:id="@+id/right_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_right"
+            android:layout_alignLeft="@+id/iv_right"
+            android:text="Holler Wrorld"
+
+            android:textColor="#FFD92C71"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

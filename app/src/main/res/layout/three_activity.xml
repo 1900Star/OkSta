@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentFrameLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+    <waimai.yunlian.com.okstar.TitelLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </waimai.yunlian.com.okstar.TitelLayout>
+
+    <Button android:id="@+id/btn1"
+            android:layout_gravity="left|top"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="30%"
+            android:text="btn1"
+            android:textAllCaps="false"/>
+    <Button android:id="@+id/btn_th2"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="30%"
+            android:layout_gravity="right|top"
+            android:text="btn_th2"
+            android:textAllCaps="false"/>
+    <Button android:id="@+id/btn3"
+            android:layout_gravity="left|bottom"
+            android:text="btn3"
+            android:textAllCaps="false"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="30%"/>
+    <Button android:id="@+id/btn4"
+            android:layout_gravity="right|bottom"
+            android:text="btn4"
+            android:textAllCaps="false"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="30%"/>
+
+    <ProgressBar android:id="@+id/pb"
+                 style="?android:progressBarStyleHorizontal"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:max="100"
+                 android:visibility="gone"/>
+
+</android.support.percent.PercentFrameLayout>
