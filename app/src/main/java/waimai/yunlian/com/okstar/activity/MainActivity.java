@@ -32,7 +32,7 @@ public class MainActivity
     private static final String TAG = "MainActivit";
     private              String Tag = "MainActivity";
     private RecyclerView        mRecyclerView;
-        private List<Person>        mList;
+    private List<Person>        mList;
     private RecyclerListAdapter mRecyclerListAdapter;
 
     @Override
@@ -119,10 +119,7 @@ public class MainActivity
                      .show();
                 break;
             case R.id.about_item:
-                Toast.makeText(this, "this is remove item", Toast.LENGTH_LONG)
-                     .show();
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
+
                 break;
             default:
                 break;

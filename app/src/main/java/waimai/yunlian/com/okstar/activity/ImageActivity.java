@@ -29,7 +29,7 @@ public class ImageActivity
     private ImageView mIvGlide;
     private GameData  mGameData;
     Context mContext;
-    private ViewPager       mViewPager;
+    private ViewPager mViewPager;
     List<ImageView> mList;
     private MyAdapter mMyAdapter;
 
@@ -42,30 +42,6 @@ public class ImageActivity
         initListere();
     }
 
-    private void initListere() {
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-            {
-                //                initData();
-                //                mList.remove(position);
-
-                LogUtil.d(TAG, "这是第" + position);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                LogUtil.d(TAG, "这是选中第" + position);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                LogUtil.d(TAG, "当前状态是" + state);
-
-            }
-        });
-    }
 
     private void initView() {
         mViewPager = (ViewPager) findViewById(R.id.vp);
@@ -78,10 +54,7 @@ public class ImageActivity
         mViewPager.setAdapter(mMyAdapter);
 
 
-
     }
-
-
 
 
     private class MyAdapter
@@ -109,14 +82,19 @@ public class ImageActivity
         public Object instantiateItem(ViewGroup container, int position) {
             ZoomImageView view = new ZoomImageView(ImageActivity.this);
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                                                        ViewGroup.LayoutParams.MATCH_PARENT);
+                                                                       ViewGroup.LayoutParams.MATCH_PARENT);
             view.setScaleType(ImageView.ScaleType.MATRIX);
 
             view.reSetState();
-//            ImageUitl.getGlidLoadPic(ImageActivity.this,position, view);
-            ImageUitl.getPicassoLoadPic(ImageActivity.this, position, view);
-//            ImageUitl.getOkHttpLoadpic(ImageActivity.this, position, view);
-            container.addView(view,params);
+//            Glide.with(context)
+//                 .load(url)
+//                 .asBitmap()
+//                 .error(R.drawable.gg)
+//                 .into(view);
+
+            ImageUitl.getGlidLoadPic(mContext, position, view);
+            //            ImageUitl.getOkHttpLoadpic(ImageActivity.this, position, view);
+            container.addView(view, params);
             return view;
         }
     }
@@ -128,4 +106,30 @@ public class ImageActivity
         }
         super.onConfigurationChanged(newConfig);
     }
+
+    private void initListere() {
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
+                //                initData();
+                //                mList.remove(position);
+
+                LogUtil.d(TAG, "这是第" + position);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                LogUtil.d(TAG, "这是选中第" + position);
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                LogUtil.d(TAG, "当前状态是" + state);
+
+            }
+        });
+    }
+
 }

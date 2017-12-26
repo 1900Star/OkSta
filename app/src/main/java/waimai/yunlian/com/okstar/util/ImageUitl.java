@@ -1,27 +1,11 @@
 package waimai.yunlian.com.okstar.util;
 
+
 import android.content.Context;
-import android.graphics.drawable.Animatable;
-import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import waimai.yunlian.com.okstar.R;
 
 /**
@@ -85,101 +69,17 @@ public class ImageUitl {
                                         "http://ww1.sinaimg.cn/large/610dc034gw1fb6aqccs3nj20u00u0wk4.jpg",
                                         "http://img2.imgtn.bdimg.com/it/u=3271180130,1167809918&fm=23&gp=0.jpg"};
 
-    public static ImageView getOkHttpLoadpic(Context context,
-                                             int position,
-                                             final ImageView imageView)
-    {
-        String       url    = picUrlArr[position];
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(url)
-                                               .build();
-        client.newCall(request)
-              .enqueue(new Callback() {
-                  @Override
-                  public void onFailure(Call call, IOException e) {
 
-                  }
-
-                  @Override
-                  public void onResponse(Call call, Response response)
-                          throws IOException
-
-                  {
-//                      byte[] picByte = response.body()
-//                                               .bytes();
-//                      final Bitmap bitmap = BitmapFactory.decodeByteArray(picByte,
-//                                                                          0,
-//                                                                          picByte.length);
-
-                  }
-              });
-        return imageView;
-    }
 
     public static ImageView getGlidLoadPic(Context context, int position, ImageView imageView) {
 
 
         String url = picUrlArr[position];
         System.out.println("this is ImageUrl    " + url);
-
         Glide.with(context)
              .load(url)
-             .asBitmap()
-//             .placeholder(R.drawable.gg)
-                          .error(R.drawable.gg)
              .into(imageView);
-
         return imageView;
     }
 
-    public static ImageView getPicassoLoadPic(Context context,
-                                              int position,
-                                              final ImageView imageView)
-    {
-        String url = picUrlArr[position];
-        Picasso.with(context)
-               .load(url)
-               .placeholder(R.drawable.gg)
-               .into(imageView);
-        return imageView;
-    }
-
-    //使用Fresco加载图片
-    public static SimpleDraweeView getFrescoLoadimage(Context context,
-                                                      int position,
-                                                      final SimpleDraweeView drawable)
-            throws MalformedURLException
-    {
-        String picUrl = picUrlArr[position];
-        Uri    url    = Uri.parse(picUrl);
-
-        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(url)
-                                                  .setProgressiveRenderingEnabled(true)
-                                                  .build();
-
-        BaseControllerListener listener = new BaseControllerListener() {
-            @Override
-            public void onFailure(String id, Throwable throwable) {
-                super.onFailure(id, throwable);
-            }
-
-            @Override
-            public void onFinalImageSet(String id, Object imageInfo, Animatable animatable) {
-                super.onFinalImageSet(id, imageInfo, animatable);
-            }
-
-            @Override
-            public void onIntermediateImageFailed(String id, Throwable throwable) {
-                super.onIntermediateImageFailed(id, throwable);
-            }
-
-        };
-        AbstractDraweeController controller = Fresco.newDraweeControllerBuilder()
-                                                    .setUri(picUrl)
-                                                    .setControllerListener(listener)
-                                                    .build();
-        drawable.setController(controller);
-
-        return drawable;
-    }
 }

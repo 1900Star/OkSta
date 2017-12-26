@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AboutActivity"/>
         <activity android:name=".activity.ViewActivity"/>
         <activity android:name=".activity.BaseAcitivity"/>
        <!-- <activity android:name=".activity.MsgActivity"/>-->
@@ -29,8 +28,7 @@
         <activity android:name=".activity.LargeImageViewActivity"/>
         <activity android:name=".largeImage.LargeImageViewSimpleBak"/>
 
-        <meta-data android:name="com.google.android.gms.version"
-                   android:value="@integer/google_play_services_version"/>
+
     </application>
 
 </manifest>
