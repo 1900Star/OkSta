@@ -77,6 +77,9 @@ public class MainActivity
                         Intent intent = new Intent(MainActivity.this, ThreedActivity.class);
                         startActivityForResult(intent, 2);
                     }
+                    default:
+                        break;
+
 
 
             }
